@@ -1,0 +1,32 @@
+<section>
+  <h3>NUEVO USUARIO</h3>
+  <hr>
+  <form [formGroup]="usersForm" (ngSubmit)="getDataForm()">
+    <div>
+      <label class="form-label" for="username">Nombre de usuario: </label>
+      <input class="form-control" type="text" id="username" formControlName="username">
+    </div>
+    <div>
+      <label class="form-label" for="first_name">Nombre: </label>
+      <input class="form-control" type="text" id="first_name" formControlName="first_name">
+    </div>
+    <div>
+      <label class="form-label" for="last_name">Apellidos: </label>
+      <input class="form-control" type="text" id="last_name" formControlName="last_name">
+    </div>
+    <div>
+      <label class="form-label" for="email">Email: </label>
+      <input class="form-control" type="email" id="email" formControlName="email">
+    </div>
+    <div>
+      <label class="form-label" for="image">Imagen</label>
+      <input class="form-control" type="text" id="image" formControlName="image">
+    </div>
+    <div>
+      <label class="form-label" for="password">Contraseña</label>
+      <input class="form-control" type="password" id="password" formControlName="password">
+    </div>
+
+    <input type="submit" value="Enviar" [disabled]="!usersForm.valid" class="btn btn-success mt-3">
+  </form>
+</section>
