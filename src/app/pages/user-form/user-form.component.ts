@@ -23,7 +23,7 @@ export class UserFormComponent {
         username: new FormControl('', [Validators.required]),
         first_name: new FormControl('', []),
         last_name: new FormControl('', []),
-        email: new FormControl('', []),
+        email: new FormControl('', [Validators.email]),
         image: new FormControl('', []),
         password: new FormControl('', []),
       },

@@ -10,6 +10,7 @@ import { IPaginacion } from '../interfaces/ipaginacion.interface';
 export class UsersService {
   httpClient = inject(HttpClient);
   API_URL = 'https://peticiones.online/api/users';
+  user: any
 
   getAllUsers(): Promise<IUser[]> {
     return lastValueFrom(
@@ -17,12 +18,19 @@ export class UsersService {
     ).then((response) => response.results);
   }
 
-  getByPage(page: number, limit: number): Promise<IPaginacion> {
+  getById(id: string): Promise<any> {
     return lastValueFrom(
-      this.httpClient.get<IPaginacion>(`${this.API_URL}?page=${page}&limit=${limit}`)
-    );
+      this.httpClient.get<{ results: IUser[] }>(this.API_URL)
+    ).then((response) => {
+      const user = response.results.find((user) => user._id === id);
+      console.log(response.results);
+      // NO BUSCA EL USER = LOS DEVUELVE TODOS....
+      return user;
+    });
   }
-  async delete(id: string): Promise<IUser> {
+
+
+  delete(id: string): Promise<IUser> {
     return lastValueFrom(
       this.httpClient.delete<IUser>(`${this.API_URL}/${id}`)
     );
@@ -32,14 +40,10 @@ export class UsersService {
     return lastValueFrom(this.httpClient.post<IUser>(this.API_URL, formValue));
   }
 
-  async getById(id: string): Promise<IUser | undefined> {
-    const response = await lastValueFrom(
-      this.httpClient.get<{ results: IUser[] }>(this.API_URL)
+  update(formValue: IUser): Promise<IUser> {
+    return lastValueFrom(
+      this.httpClient.put<IUser>(`${this.API_URL}/${formValue._id}`, formValue)
     );
-    const user = response.results.find((user) => user._id === id);
-    console.log(response.results);
-    return user;
   }
-
-
 }
+
