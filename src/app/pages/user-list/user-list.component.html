@@ -1,8 +1,8 @@
-<a [routerLink]="['/new', 'user']" class="btn btn-success mb-3">Nuevo usuario</a>
 <div class="row">
   @for(user of arrUsers; track user._id){
-  <article class="col-12 col-lg-6">
+  <article class="col-6 col-lg-4 ">
     <app-user-card [miUser]="user"></app-user-card>
   </article>
   }
 </div>
+

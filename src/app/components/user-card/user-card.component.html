@@ -1,18 +1,7 @@
-<div class="card mb-3">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <figure>
-      <img [src]="miUser.image" class="img-fluid rounded-start" [alt]="miUser.username">
-      </figure>
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">{{miUser.first_name}}</h5>
-        <p class="card-text">{{miUser.last_name}}</p>
-        <p class="card-text"><small class="text-body-secondary">{{miUser.email}}</small></p>
+<div class="card gap-3 mb-3" style="min-width: 120px;">
+      <img [src]="miUser.image" class="img-fluid rounded-circle shadow-4-strong p-4" [alt]="miUser.username">
+  <div class="card-body">
+        <h4 class="card-title text-center ">{{miUser.username}}</h4>
         <app-botonera [parent]="'card'" [userId]="miUser._id"></app-botonera>
-      </div>
-
-    </div>
   </div>
 </div>

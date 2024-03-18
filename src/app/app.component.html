@@ -1,11 +1,14 @@
-<header class="bg-secondary border-4 text-center shadow p-2 mb-3">
-  <a class="h4 text-white" [routerLink]="['home']">Usuarios</a>
-</header>
 <div class="container">
-  <main class="mt-4">
-    <router-outlet></router-outlet>
-  </main>
+  <header class="p-2 mb-3">
+    <app-header></app-header>
+  </header>
+  <hr>
+  <div class="container">
+    <main class="mt-4">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+  <footer class="text-center">
+    <p>My Users App - 2024</p>
+  </footer>
 </div>
-<footer class="bg-primary text-center shadow p-2 mt-3">
-  <p>My Users App - 2024</p>
-</footer>

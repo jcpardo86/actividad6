@@ -17,13 +17,13 @@ export class BotoneraComponent {
   async borrarUser(id: string | undefined) {
     if (id !== undefined) {
       let confirmacion = confirm(
-        'Seguro que quiere borrar al usuario' + this.userId
+        'Quiere borrar al usuario' + this.userId + '?'
       );
       if (confirmacion) {
         //borrar
         let response = await this.usersService.delete(id);
         if (response._id) {
-          alert('Se ha borrado correctamente el usuario ' + response.username);
+          alert('El usuario ' + response.username +' ha sido borrado correctamente');
         }
       }
     }

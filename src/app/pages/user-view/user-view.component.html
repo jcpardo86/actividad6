@@ -1,15 +1,16 @@
 <section class="container mt-3">
   <div class="card shadow p-3">
-    <div class="row">
-      <figure class="col-12 col-md-3">
-        <img class="img-fluid" [src]="unUser.image" [alt]="unUser.username">
+    <div class="col-6">
+      <figure class="circle">
+        <img class="img-fluid circle" [src]="unUser.image" [alt]="unUser.username">
       </figure>
+    </div>
+    <div class="row">
       <div class="col-12 col-md-9">
-        <h2>{{unUser.first_name}}</h2>
+        <h2>{{unUser.username}}</h2>
+        <p>Apellido: {{unUser.last_name}}</p>
         <hr>
         <p>Nombre: {{unUser.first_name}}</p>
-        <p>Apellido: {{unUser.last_name}}</p>
-        <p>Username: {{unUser.username}}</p>
         <p>Email: {{unUser.email}}</p>
 
         <app-botonera-user-view [parent]="'view'" [userId]="unUser._id"></app-botonera-user-view>
@@ -17,4 +18,5 @@
     </div>
   </div>
 </section>
+
 
