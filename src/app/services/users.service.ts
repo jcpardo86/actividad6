@@ -10,7 +10,6 @@ import { IPaginacion } from '../interfaces/ipaginacion.interface';
 export class UsersService {
   httpClient = inject(HttpClient);
   API_URL = 'https://peticiones.online/api/users';
-  user: any
 
   getAllUsers(): Promise<IUser[]> {
     return lastValueFrom(

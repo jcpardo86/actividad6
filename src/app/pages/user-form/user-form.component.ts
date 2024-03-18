@@ -25,7 +25,7 @@ export class UserFormComponent {
         last_name: new FormControl('', []),
         email: new FormControl('', [Validators.email]),
         image: new FormControl('', []),
-        password: new FormControl('', []),
+        password: new FormControl('', [Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/) ]),
       },
       []
     );
@@ -42,9 +42,9 @@ export class UserFormComponent {
               username: new FormControl(response.username, [Validators.required]),
               first_name: new FormControl(response.first_name, []),
               last_name: new FormControl(response.last_name, []),
-              email: new FormControl(response.email, []),
+              email: new FormControl(response.email, [Validators.email]),
               image: new FormControl(response.image, []),
-              password: new FormControl(response.password, []),
+              password: new FormControl(response.password, [Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/)]),
             },
             []
           );

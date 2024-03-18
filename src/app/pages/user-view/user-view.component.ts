@@ -18,21 +18,19 @@ import { BotoneraUserViewComponent } from '../../components/botonera-user-view/b
   styleUrl: './user-view.component.css',
 })
 export class UserViewComponent implements OnInit {
-  private activatedRoute = inject(ActivatedRoute);
-  private usersService = inject(UsersService);
-  unUser?: any = {};
-  user: any;
+  activatedRoute = inject(ActivatedRoute);
+  usersService = inject(UsersService);
+  unUser!: IUser;
+
 
   ngOnInit(): void {
-    const userId = 'id';
-    this.usersService
-      .getById(userId)
-      .then((data) => {
-        console.log('Usuario obtenido:', data);
-        this.user = data;
-      })
-      .catch((error) => {
-        console.error('Error al obtener el usuario:', error);
-      });
+    this.activatedRoute.params.subscribe(async (params: any) => {
+    const id  = params.user_id;
+      try {
+        this.unUser = await this.usersService.getById(id)
+      } catch (error) {
+        console.log(error);
+      }
+    })
   }
 }
